@@ -12,8 +12,12 @@ var players = ["Ichiro", "Barry Bonds", "Babe Ruth"];
             addedPlayer.addClass("player");
             addedPlayer.attr("data-name", players[i]);
             $("#new-player").append(addedPlayer);
+            
+
         }
+        
     }
+
 
 
     function displayGif() {
@@ -21,7 +25,7 @@ var players = ["Ichiro", "Barry Bonds", "Babe Ruth"];
     //     event.preventDefault();
         var player = $(this).attr("#player-input");
         
-        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=cEm2R8y7shniOVf8cxDEDp6nusYySg89&q=" + player[i] + "&limit=10&offset=0&rating=G&lang=en";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=cEm2R8y7shniOVf8cxDEDp6nusYySg89&q=" + player + "&limit=10&offset=0&rating=G&lang=en";
 
         $.ajax({
             url: queryURL,
@@ -32,6 +36,7 @@ var players = ["Ichiro", "Barry Bonds", "Babe Ruth"];
             playerGif.append(gif);
         $("#new-player").prepend(playerGif);
     
+        newButton();
         });
     }
 
