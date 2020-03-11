@@ -16,6 +16,7 @@ function newButton() {
         $("#new-player").append(addedPlayer);
         
     }
+    gifCall();
 }
 
 
@@ -34,7 +35,7 @@ function newButton() {
             event.preventDefault()
             var playerName = $(this).attr("data-name");
             console.log(playerName);
-            var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=cEm2R8y7shniOVf8cxDEDp6nusYySg89&q="+ players + "&limit=10&offset=0&rating=G&lang=en";
+            var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=cEm2R8y7shniOVf8cxDEDp6nusYySg89&q="+ playerName + "&limit=10&offset=0&rating=G&lang=en";
         
             $.ajax({
                 url: queryURL,
@@ -55,4 +56,3 @@ function newButton() {
  
 
 newButton();
-gifCall();
