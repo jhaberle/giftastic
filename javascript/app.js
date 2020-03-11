@@ -1,6 +1,9 @@
+// initial variables when the page is loaded
+
 var players = ["Ichiro", "Ted Williams", "Babe Ruth"];
 
 
+// function to create a new button at top of page after search button is clicked
 
 function newButton() {
     
@@ -24,11 +27,13 @@ function newButton() {
     });
 
   
-
+// function for ajax call and to push gifs onto page
     function gifCall() {
         
-        $(".button").on("click", function(call) {
-            call.preventDefault()
+        $(".player").on("click", function(event) {
+            event.preventDefault()
+            var playerName = $(this).attr("data-name");
+            console.log(playerName);
             var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=cEm2R8y7shniOVf8cxDEDp6nusYySg89&q="+ players + "&limit=10&offset=0&rating=G&lang=en";
         
             $.ajax({
@@ -36,10 +41,18 @@ function newButton() {
                 method: "GET"
             }).then(function(response) {
             console.log(response);
-            $(".gifs").append(response.data.url);
+            // $(document).on("click", ".gifs", response.data[i].url);
+            
+            var gifUrl = response.data[0].url;
+            // for (i = 0; i < gifHTML.length; i++);
+            var gifHTML = $(`<img src='${gifUrl}'>`)
+            $(".gifs").append(gifHTML);
             });
         })
     }
+
+
+ 
 
 newButton();
 gifCall();
