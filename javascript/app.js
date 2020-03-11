@@ -23,11 +23,11 @@ function newButton() {
         newButton();
     });
 
-    newButton();
+  
 
     function gifCall() {
         
-        $("#search-player").on("click", function(call) {
+        $(".button").on("click", function(call) {
             call.preventDefault()
             var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=cEm2R8y7shniOVf8cxDEDp6nusYySg89&q="+ players + "&limit=10&offset=0&rating=G&lang=en";
         
@@ -40,4 +40,5 @@ function newButton() {
         })
     }
 
- 
+newButton();
+gifCall();
