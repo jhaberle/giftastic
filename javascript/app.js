@@ -1,4 +1,4 @@
-var players = ["Ichiro", "Barry Bonds", "Babe Ruth"];
+var players = ["Ichiro", "Ted Williams", "Babe Ruth"];
 
 
 
@@ -36,6 +36,7 @@ function newButton() {
                 method: "GET"
             }).then(function(response) {
             console.log(response);
+            $(".gifs").append(response.data.url);
             });
         })
     }
