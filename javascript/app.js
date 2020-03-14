@@ -44,10 +44,10 @@ function newButton() {
             console.log(response);
             // $(document).on("click", ".gifs", response.data[i].url);
             
-            var gifUrl = response.data[0].url;
+            var gifUrl = response.data[0].images.fixed_height.url;
             // for (i = 0; i < gifHTML.length; i++);
             var gifHTML = $(`<img src='${gifUrl}'>`)
-            $(".gifs").append(gifHTML);
+            $(".gifs-img").append(gifHTML);
             });
         })
     }
